@@ -6,7 +6,8 @@ import "./App.css";
 import Dashboard from "./components/Dashboard";
 import ProjectList from "./components/ProjectList";
 import TaskList from "./components/TaskList";
-import Navbar from "./components/Navbar";
+import Notifications from "./components/Notifications";      // <- new
+// import Navbar from "./components/Navbar";
 import Notfound from "./components/Notfound";
 import Login from "./components/Login";
 import LoggedOut from "./components/LoggedOut";
@@ -19,60 +20,82 @@ export default function App() {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setToken(token);
-    }
+    const tok = localStorage.getItem("token");
+    if (tok) setToken(tok);
   }, []);
 
   return (
-    <div className="min-h-screen flex min-w-full bg-gray-light w-full h-screen  ">
-      
+    <div className="min-h-screen flex w-full bg-gray-light">
       <Routes>
+        {/* Home redirect */}
         <Route path="/" element={<Navigate to="/dashboard" />} />
-        <Route
-          path="/login"
-          element={<Login setToken={setToken} />}
-        />
+
+        {/* Auth */}
+        <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/signup" element={<Register />} />
+
+        {/* Protected Dashboard */}
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute token={token}>
-              <Dashboard
-                taskCount={taskCount}
-                token={token}
-                setToken={setToken}
-              />
+              <Dashboard taskCount={taskCount} token={token} setToken={setToken} />
             </ProtectedRoute>
           }
         />
+
+        {/* Projects */}
         <Route
           path="/projects"
-          element={
-            token ? (
-              <ProjectList setToken={setToken} token={token} />
-            ) : (
-              <LoggedOut />
-            )
-          }
+          element={token ? <ProjectList token={token} setToken={setToken} /> : <LoggedOut />}
         />
+        <Route
+          path="/project"
+          element={token ? <ProjectList token={token} setToken={setToken} /> : <LoggedOut />}
+        />
+
+        {/* Tasks */}
         <Route
           path="/tasks"
           element={
             token ? (
-              <TaskList
-                setToken={setToken}
-                token={token}
-                setTaskCount={setTaskCount}
-              />
+              <TaskList token={token} setToken={setToken} setTaskCount={setTaskCount} />
             ) : (
               <LoggedOut />
             )
           }
         />
+        <Route
+          path="/task"
+          element={
+            token ? (
+              <TaskList token={token} setToken={setToken} setTaskCount={setTaskCount} />
+            ) : (
+              <LoggedOut />
+            )
+          }
+        />
+        <Route
+          path="/tasklist"
+          element={
+            token ? (
+              <TaskList token={token} setToken={setToken} setTaskCount={setTaskCount} />
+            ) : (
+              <LoggedOut />
+            )
+          }
+        />
+
+        {/* Notifications */}
+        <Route
+          path="/notification"
+          element={token ? <Notifications /> : <LoggedOut />}
+        />
+
+        {/* Catch‑all */}
         <Route path="*" element={<Notfound />} />
       </Routes>
+
       <ToastContainer />
     </div>
   );

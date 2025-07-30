@@ -2,8 +2,6 @@ import Project from '../models/project-models.js';
 import Task from '../models/task-models.js';
 import { ApiError } from '../utils/ApiError.js';
 import { ApiResponse } from '../utils/ApiResponse.js';
-// import { asyncHandler } from "../utils/asyncHandler.js";
-
 const createProject = async (req, res) => {
 	const { name, description } = req.body;
 
@@ -126,14 +124,12 @@ const updateProjectById = async (req, res) => {
 const deleteProjectById = async (req, res) => {
 	const { projectId } = req.params;
 
-	// Validate if projectId is provided
 	if (!projectId) {
 		return res.status(400).json({
 			message: 'Project Id is required',
 		});
 	}
 
-	// Validate if user is authorized
 	if (!req?.user?.id) {
 		return res.status(401).json({
 			message: 'Unauthorized',
@@ -141,7 +137,7 @@ const deleteProjectById = async (req, res) => {
 	}
 
 	try {
-		// Find the project associated with the user
+		
 		const project = await Project.findOne({
 			_id: projectId,
 			user: req.user.id,
@@ -151,10 +147,8 @@ const deleteProjectById = async (req, res) => {
 			return res.status(404).json({ message: 'Project not found.' });
 		}
 
-		// Delete all tasks associated with the project
 		await Task.deleteMany({ project: projectId });
 
-		// Delete the project itself using deleteOne()
 		await Project.deleteOne({ _id: projectId, user: req.user.id });
 
 		return res

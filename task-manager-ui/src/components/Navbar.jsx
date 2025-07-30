@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaTachometerAlt, FaProjectDiagram, FaTasks, FaSignOutAlt } from "react-icons/fa"; // Import the icons
+// import { FaTachometerAlt, FaProjectDiagram, FaTasks, FaSignOutAlt } from "react-icons/fa"; // Import the icons
 import Dashboard_icon from ".././assets/icons/dashboard-icon.svg"
 import Project_icon from ".././assets/icons/project-icon.svg"
 import Task_icon from ".././assets/icons/task-icon.svg"

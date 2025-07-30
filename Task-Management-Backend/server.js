@@ -19,11 +19,8 @@ app.use(cors({origin: "http://localhost:3000", credentials: true}));
 connectDB();
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`); // Log the HTTP link
+  console.log(`Server is running on http://localhost:${PORT}`); 
 });
-
-// Our project routes go here
-// http://localhost:5000/api/v1/healthcheck
 
 app.use("/api/v1/healthcheck", healthcheckRouter);
 app.use("/api/v1/projects", projectsRouter);

@@ -6,7 +6,7 @@ const TaskForm = ({ token, projects, setTasks }) => {
   const [project, setProject] = useState("");
   const [deadline, setDeadline] = useState("");
   const [priority, setPriority] = useState("Low");
-  const [status, setStatus] = useState("Pending"); // New status field
+  const [status, setStatus] = useState("Pending"); 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

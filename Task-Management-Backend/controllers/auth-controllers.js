@@ -18,7 +18,6 @@ const registerUser = async (req, res) => {
     res.cookie("auth_session", token, cookieOptions);
     res.status(StatusCodes.CREATED).json(
       successResponse(
-        //if you don't understand what it is then just refer what successResponse says in lib/res/successResponse.js
         true,
         "User created successfully",
         {},

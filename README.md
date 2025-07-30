@@ -1,96 +1,98 @@
+# Task Manager
 
-# 📝 Task Management App
-
-Welcome to the **Task-Manager**, a simple and efficient project and task management tool built using the **MERN Stack** (MongoDB, Express, React, Node.js). Stay organized by creating projects, adding tasks, setting deadlines, and prioritizing your work. Perfect for teams and individuals alike!
-
-### 🚀 Hacktoberfest 2024  
-We are excited to participate in **Hacktoberfest**! Contributions are welcome from everyone. Join the conversation in our [Discord Channel](https://discord.gg/nxD63YsJ) to collaborate and get assistance.
+A simple and efficient project and task management tool built with the MERN stack (MongoDB, Express, React, Node.js). Stay organized by creating projects, adding tasks, setting deadlines, and prioritizing your work. Includes authentication, notifications, and responsive design.
 
 ---
 
-## 🌟 Features
+## 🚀 Features
 
-- **🗂️ Project Management:** Create, update, and delete projects effortlessly.
-- **📝 Task Tracking:** Add, prioritize, and assign deadlines to tasks within each project.
-- **✅ Task Status:** Easily mark tasks as completed or pending to track progress.
-- **🔄 Subtasks:** Manage complex tasks by breaking them down into smaller subtasks.
-
----
-
-## Technologies Used 🚀
-
-<br />
-
-<div>
-  <img height="50" src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" title="Node.js" /> 
-  <img height="50" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Express.js" title="Express.js" /> 
-  <img height="50" src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" title="React" /> 
-  <img height="50" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?logo=mongodb&logoColor=white" alt="MongoDB" title="MongoDB" /> 
-  <img height="50" src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" alt="NPM" title="NPM" /> 
-  <img height="50" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git" title="Git" /> 
-  <img height="50" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" title="GitHub" /> 
-</div>
+- **User Authentication**: Register, login, and logout with JWT-based protected routes.
+- **Dashboard**: Overview of total projects, tasks, and pending notifications.
+- **Project Management**:
+  - Create, read, update, and delete (CRUD) projects.
+  - View all projects at `/projects` or `/project`.
+- **Task Management**:
+  - Add tasks with title, description, deadline, priority, and subtasks.
+  - Mark tasks as completed or pending.
+  - View tasks at `/tasks`, `/task`, or `/tasklist`.
+- **Notifications**:
+  - Simple notifications view at `/notification` (placeholder for future enhancements).
+- **Protected Routes**: Only authenticated users can access dashboard, projects, tasks, and notifications.
+- **React Router**: Client-side routing using `react-router-dom`.
+- **Responsive UI**: Built with Tailwind CSS for mobile and desktop support.
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Tech Stack
+
+- **Frontend**: React, React Router, Tailwind CSS, React Toastify  
+- **Backend**: Node.js, Express.js, Mongoose (MongoDB)  
+- **Database**: MongoDB (local or Atlas)  
+- **Authentication**: JSON Web Tokens (JWT)  
+- **Version Control**: Git & GitHub  
+
+---
+
+## 📁 Repository Structure
+```
+├── task-manager-ui/ # React frontend
+│ ├── public/
+│ │ ├── favicon.ico # Custom favicon
+│ │ └── index.html # Title & meta tags
+│ ├── src/
+│ │ ├── assets/ # Static assets (e.g. logos)
+│ │ ├── components/ # React components
+│ │ ├── App.jsx # Routes & layout
+│ │ └── index.js # BrowserRouter wrapper
+│ └── package.json
+├── Task-Management-Backend/
+│ ├── controllers/ # Route handlers
+│ ├── db/ # MongoDB connection
+│ ├── middlewares/ # Auth, error handling
+│ ├── models/ # Mongoose schemas
+│ ├── routes/ # Express routers
+│ ├── utils/ # Helpers & constants
+│ ├── .env # Environment variables (ignored)
+│ └── server.js # Entry point
+└── README.md # Project overview and setup instructions
+```
+
+
+---
+
+## 💻 Getting Started
 
 ### Prerequisites
 
-Before starting, ensure you have the following:
+- Node.js v12 or higher  
+- npm (comes with Node)  
+- MongoDB (local install or MongoDB Atlas account)  
 
-- **Node.js** (v12 or higher) and **npm** installed
-- **MongoDB** (either locally or via a cloud service)
+### 1. Clone the repo
 
+```bash
+git clone https://github.com/parthgoel1204/CANTILEVER_.git
+```
 ---
 
-## 🛠️ Installation & Setup
+## 2. Setup Backend
 
-### Frontend Installation
+1. Navigate to the backend folder:
+   ```bash
+   cd Task-Management-Backend
+  
 
-1. **Clone the Repository**  
-   `git clone https://github.com/your-username/task-management-app.git`
+2.   Install dependencies:
+      npm install
 
-2. **Navigate to the frontend folder**  
-   `cd task-manager-ui`
+3. Create a .env file at the project root with:
+   MONGODB_URI=<your-mongodb-connection-string>
+   JWT_SECRET=<your-secret-key>
+   PORT=5000
 
-3. **Install Dependencies**  
-   `npm install`
+4. Start the backend server in development mode:
+   npm run dev
 
-4. **Run the Application**  
-   `npm start`
+The server will run at http://localhost:5000
+```
 
----
-
-## 🤝 Contribution Guide
-
-We welcome and appreciate contributions! Please follow these steps:
-
-1. **Fork the Repository**  
-   Create a fork of the main repository on GitHub.
-
-2. **Create a Branch**  
-   Create a feature branch:  
-   `git checkout -b my-feature-branch`
-
-3. **Make Changes**  
-   Implement your changes, and ensure they are well-documented.
-
-4. **Submit a Pull Request**  
-   After making changes, submit a PR (Pull Request) with a detailed description.  
-
-For detailed contribution guidelines, please refer to our [Contribution Guide](https://github.com/LakshmiSowmya04/Task-Manager/blob/main/CONTRIBUTING.md).
-
----
-
-## 🖼️ Frontend-Only Contribution
-
-If you'd like to contribute to just the frontend:
-
-- Clone and work within the `task-manager-ui` folder.
-- For beginners unfamiliar with React, contributions can be made using **HTML**, **CSS**, and **JavaScript**.
-- **Don't forget to attach screenshots** when submitting your pull request.
-
----
-
-Join us in building and improving this powerful Task Management tool! 🎉

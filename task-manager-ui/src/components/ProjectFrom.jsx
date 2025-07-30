@@ -65,5 +65,4 @@ const ProjectForm = ({ token, setProjects }) => {
     </div>
   );
 };
-
 export default ProjectForm;

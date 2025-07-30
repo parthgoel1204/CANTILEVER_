@@ -17,7 +17,6 @@ export default function Register() {
       },
       body: JSON.stringify({ email, password, username }),
     });
-    // console.log('response',await response.json(),response)
     if (response.ok) {
       navigate("/login");
     }else {

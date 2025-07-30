@@ -2,7 +2,6 @@ import Task from "../models/task-models.js";
 import Project from "../models/project-models.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-// import { asyncHandler } from "../utils/asyncHandler.js";
 
 const createTask = async (req, res) => {
     const { name, deadline, priority, project } = req.body;
@@ -167,7 +166,6 @@ const updateTaskById = async (req, res) => {
 const deleteTaskById = async (req, res) => {
     const { taskId } = req.params;
 
-    // Validate if taskId is provided
     if (!taskId) {
         return res.status(400).json({
             message: "Task ID is required",
@@ -175,7 +173,6 @@ const deleteTaskById = async (req, res) => {
     }
 
     try {
-        // Find the task by ID
         const task = await Task.findById(taskId);
 
         if (!task) {
@@ -183,10 +180,7 @@ const deleteTaskById = async (req, res) => {
                 message: "Task does not exist",
             });
         }
-
-        // Delete the task using deleteOne() or findByIdAndDelete()
         await Task.deleteOne({ _id: taskId });
-        // Alternatively, you can use: await Task.findByIdAndDelete(taskId);
 
         return res.status(200).json({
             message: "Task deleted successfully",
@@ -203,5 +197,5 @@ export default {
     deleteTaskById,
     getTaskById,
     getAllTasks
-    // getTaskByUser,
+ 
 };

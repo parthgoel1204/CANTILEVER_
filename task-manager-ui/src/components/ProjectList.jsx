@@ -34,7 +34,7 @@ function ProjectList({ token }) {
       >
         {showProjectForm ? (
           <div className="flex">
-            {/* Random icon for time being . Change later */}
+          
             <img
               className="h-5 mt-[5px] mr-3"
               src="/images/closeicon.png"
@@ -44,13 +44,11 @@ function ProjectList({ token }) {
           </div>
         ) : (
           <div className="flex">
-            {/* Random icon for time being . Change later */}
             <img className="h-8 mr-3" src="/images/plusIcon.png" alt="" /> Add
             New Project
           </div>
         )}
       </button>
-      {/* added a button to go to dashboard */}
       <button className="p-3 px-10 border text-white bg-black mt-10 w-full md:w-96 md:mr-10 rounded-lg font-semibold text-xl">
         <Link to="/dashboard">
         Go back to Dashboard 
@@ -61,7 +59,6 @@ function ProjectList({ token }) {
       {showProjectForm && (
         <ProjectForm token={token} setProjects={setProjects} />
       )}
-      {/* styled project list */}
       <ul className="md:pl-10 md:mt-4 mt-8 md:flex flex-wrap project-list">
         {projects && projects.map((project) => (
           <div
