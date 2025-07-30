@@ -83,16 +83,79 @@ git clone https://github.com/parthgoel1204/CANTILEVER_.git
   
 
 2.   Install dependencies:
-      npm install
+   ```bash
+    npm install
+   ```
 
 3. Create a .env file at the project root with:
+  ```
    MONGODB_URI=<your-mongodb-connection-string>
    JWT_SECRET=<your-secret-key>
    PORT=5000
-
-4. Start the backend server in development mode:
-   npm run dev
-
-The server will run at http://localhost:5000
 ```
 
+4. Start the backend server in development mode:
+```
+   npm run dev
+```
+
+The server will run at http://localhost:5000
+
+## 2. Setup Frontend
+1. Open a new terminal and navigate to the frontend folder:
+   ```
+   cd ../task-manager-ui
+   ```
+   
+2. Install dependencies:
+   ```
+    npm install
+   ```
+3. Start the React development server:
+  ```
+  npm start
+  ```
+4. The app should now be running at:
+   ```
+   http://localhost:3000
+   ```
+---
+
+## 🔄 Usage
+Register a new user at:
+```
+http://localhost:3000/signup
+```
+Login at:
+```
+http://localhost:3000/signup
+```
+Dashboard at:
+  ```
+http://localhost:3000/dashboard
+```
+Projects at:
+  ```
+http://localhost:3000/projects
+http://localhost:3000/project
+```
+Tasks at:
+  ```
+http://localhost:3000/tasks
+http://localhost:3000/task
+http://localhost:3000/tasklist
+```
+Notifications at:
+  ```
+http://localhost:3000/notification
+```
+---
+
+## License
+This project is licensed under the MIT License.
+
+## 📬 Contact
+**Parth Goel**
+Email:parthgoel1204@gmail.com
+
+X: @codeslayerTanj
